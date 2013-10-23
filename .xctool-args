@@ -1,0 +1,4 @@
+[
+  "-workspace", "WeatherApp.xcworkspace",
+  "-scheme", "WeatherApp"
+]

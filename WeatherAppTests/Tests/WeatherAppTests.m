@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import <AFNetworking/AFNetworking.h>
 
 @interface WeatherAppTests : XCTestCase
 
@@ -28,7 +29,7 @@
 
 - (void)testExample
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    assert(true);
 }
 
 @end

@@ -15,6 +15,45 @@
 #import "TranslatorHelper.h"
 #import "ErrorNotificationHelper.h"
 
+@interface AFHTTPRequestOperationManagerSuccess : AFHTTPRequestOperationManager
+
+@property (nonatomic,strong) NSData *responseData;
+
+@end
+
+
+@implementation AFHTTPRequestOperationManagerSuccess
+
+- (AFHTTPRequestOperation *)GET:(NSString *)URLString
+                     parameters:(NSDictionary *)parameters
+                        success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+                        failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+{
+    success(nil, _responseData);
+    return nil;
+}
+
+@end
+
+@interface AFHTTPRequestOperationManagerFailure : AFHTTPRequestOperationManager
+
+@property (nonatomic,strong) NSError *error;
+
+@end
+
+@implementation AFHTTPRequestOperationManagerFailure
+
+- (AFHTTPRequestOperation *)GET:(NSString *)URLString
+                     parameters:(NSDictionary *)parameters
+                        success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+                        failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+{
+    failure(nil, _error);
+    return nil;
+}
+
+@end
+
 @interface WeatherAPIManagerTests : XCTestCase
 
 @end
@@ -52,6 +91,57 @@
 {
     assertThat([[WeatherAPIManager sharedManager] errorNotificationHelper], notNilValue());
     assertThat([[WeatherAPIManager sharedManager] errorNotificationHelper], instanceOf([ErrorNotificationHelper class]));
+}
+
+#pragma mark - CitiesWithUserLatitudeUserLongitudeAndCallbackBlock Tests
+
+- (void)testCitiesWithUserLatitudeUserLongitudeAndCallbackBlockWithSuccessResponseAndValidResponseData
+{
+    WeatherAPIManager *weatherAPIManager = [WeatherAPIManager sharedManager];
+    AFHTTPRequestOperationManagerSuccess *requestOperationManagerSuccess = [[AFHTTPRequestOperationManagerSuccess alloc] init];
+    NSData *responseData = [JSON_VALID_STRING dataUsingEncoding:NSUTF8StringEncoding];
+    requestOperationManagerSuccess.responseData = responseData;
+    weatherAPIManager.requestOperationManager = requestOperationManagerSuccess;
+    TranslatorHelper *translatorHelper = mock([TranslatorHelper class]);
+    weatherAPIManager.translatorHelper = translatorHelper;
+    CallbackBlock callbackBlock = ^(NSArray *cities, NSError *error) {};
+    [weatherAPIManager citiesWithUserLatitude:@0.0f
+                                userLongitude:@0.0f
+                             andCallbackBlock:callbackBlock];
+    [verify(translatorHelper) parseCitiesWithResponseObject:responseData
+                                           andCallbackBlock:callbackBlock];
+}
+
+- (void)testCitiesWithUserLatitudeUserLongitudeAndCallbackBlockWithSuccessResponseAndInvalidResponseData
+{
+    WeatherAPIManager *weatherAPIManager = [WeatherAPIManager sharedManager];
+    AFHTTPRequestOperationManagerSuccess *requestOperationManagerSuccess = [[AFHTTPRequestOperationManagerSuccess alloc] init];
+    NSData *responseData = [JSON_INVALID_STRING dataUsingEncoding:NSUTF8StringEncoding];
+    requestOperationManagerSuccess.responseData = responseData;
+    weatherAPIManager.requestOperationManager = requestOperationManagerSuccess;
+    TranslatorHelper *translatorHelper = mock([TranslatorHelper class]);
+    weatherAPIManager.translatorHelper = translatorHelper;
+    CallbackBlock callbackBlock = ^(NSArray *cities, NSError *error) {};
+    [weatherAPIManager citiesWithUserLatitude:@0.0f
+                                userLongitude:@0.0f
+                             andCallbackBlock:callbackBlock];
+    [verify(translatorHelper) parseCitiesWithResponseObject:responseData
+                                           andCallbackBlock:callbackBlock];
+}
+
+- (void)testCitiesWithUserLatitudeUserLongitudeAndCallbackBlockWithFailureResponse
+{
+    WeatherAPIManager *weatherAPIManager = [WeatherAPIManager sharedManager];
+    AFHTTPRequestOperationManagerFailure *requestOperationManagerFailure = [[AFHTTPRequestOperationManagerFailure alloc] init];
+    weatherAPIManager.requestOperationManager = requestOperationManagerFailure;
+    ErrorNotificationHelper *errorNotificationHelper = mock([ErrorNotificationHelper class]);
+    weatherAPIManager.errorNotificationHelper = errorNotificationHelper;
+    CallbackBlock callbackBlock = ^(NSArray *cities, NSError *error) {};
+    [weatherAPIManager citiesWithUserLatitude:@0.0f
+                                userLongitude:@0.0f
+                             andCallbackBlock:callbackBlock];
+    [verify(errorNotificationHelper) notifyError:(NSError *)anything()
+                               withCallbackBlock:callbackBlock];
 }
 
 @end

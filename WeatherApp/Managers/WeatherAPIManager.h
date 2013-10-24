@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AFNetworking/AFNetworking.h>
 #import "TranslatorHelper.h"
 #import "ErrorNotificationHelper.h"
 
 @interface WeatherAPIManager : NSObject <TranslatorHelperDelegate, ErrorNotificationHelperDelegate>
 
+@property (nonatomic, strong) AFHTTPRequestOperationManager *requestOperationManager;
 @property (nonatomic, strong) TranslatorHelper *translatorHelper;
 @property (nonatomic, strong) ErrorNotificationHelper *errorNotificationHelper;
 

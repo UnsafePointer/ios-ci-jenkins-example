@@ -7,7 +7,6 @@
 //
 
 #import "WeatherAPIManager.h"
-#import <AFNetworking/AFNetworking.h>
 
 static dispatch_once_t oncePredicate;
 
@@ -16,6 +15,17 @@ static dispatch_once_t oncePredicate;
 }
 
 #pragma mark - Lazy Loading Pattern
+
+- (AFHTTPRequestOperationManager *)requestOperationManager
+{
+    if (_requestOperationManager == nil) {
+        _requestOperationManager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:
+                                    [NSURL URLWithString:@"http://api.openweathermap.org/data/2.5/"]];
+        _requestOperationManager.responseSerializer = [AFJSONResponseSerializer serializer];
+        _requestOperationManager.requestSerializer = [AFJSONRequestSerializer serializer];
+    }
+    return _requestOperationManager;
+}
 
 - (TranslatorHelper *)translatorHelper
 {
@@ -35,7 +45,7 @@ static dispatch_once_t oncePredicate;
     return _errorNotificationHelper;
 }
 
-#pragma mark - Public Methods
+#pragma mark - Class Methods
 
 + (WeatherAPIManager *)sharedManager
 {
@@ -46,26 +56,26 @@ static dispatch_once_t oncePredicate;
     return _sharedManager;
 }
 
+#pragma mark - Public Methods
+
 - (void)citiesWithUserLatitude:(NSNumber *)userLatitude
                  userLongitude:(NSNumber *)userLongitude
               andCallbackBlock:(CallbackBlock)callbackBlock
 {
     __weak WeatherAPIManager *weakSelf = self;
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    [manager GET:@"http://api.openweathermap.org/data/2.5/find"
-      parameters:@{@"lat": userLatitude,
-                   @"lon": userLongitude,
-                   @"cnt": @100,
-                   @"type": @"json"}
-         success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             [[weakSelf translatorHelper] parseCitiesWithResponseObject:responseObject
-                                                  andCallbackBlock:callbackBlock];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [[weakSelf errorNotificationHelper] notifyError:error
-                                      withCallbackBlock:callbackBlock];
-    }];
+    [[self requestOperationManager] GET:@"find"
+                             parameters:@{@"lat": userLatitude,
+                                          @"lon": userLongitude,
+                                          @"cnt": @100,
+                                          @"type": @"json"}
+                                success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                    [[weakSelf translatorHelper] parseCitiesWithResponseObject:responseObject
+                                                                              andCallbackBlock:callbackBlock];
+                                }
+                                failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                    [[weakSelf errorNotificationHelper] notifyError:error
+                                                                  withCallbackBlock:callbackBlock];
+                                }];
 }
 
 #pragma mark - ParseHelperDelegate

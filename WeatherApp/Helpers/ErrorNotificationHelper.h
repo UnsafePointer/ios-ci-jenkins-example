@@ -12,7 +12,8 @@
 
 @required
 
-- (void)didNotifyErrorWithCallbackBlock:(CallbackBlock)callbackBlock;
+- (void)didNotifyError:(NSError *)error
+     withCallbackBlock:(CallbackBlock)callbackBlock;
 
 @end
 

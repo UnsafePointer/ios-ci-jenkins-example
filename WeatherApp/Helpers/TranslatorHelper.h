@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol ParseHelperDelegate <NSObject>
+@class ValidatorHelper;
+
+@protocol TranslatorHelperDelegate <NSObject>
 
 @required
 
@@ -19,7 +21,7 @@
 
 @end
 
-@interface ParseHelper : NSObject
+@interface TranslatorHelper : NSObject
 
 @property (nonatomic, weak) id delegate;
 

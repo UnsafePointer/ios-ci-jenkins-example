@@ -7,12 +7,17 @@
 //
 
 #import "CitiesViewController.h"
+#import "WeatherAPIManager.h"
 
 @interface CitiesViewController ()
 
 @end
 
 @implementation CitiesViewController
+{
+}
+
+#pragma mark - View Controller Life Cycle
 
 - (void)viewDidLoad
 {

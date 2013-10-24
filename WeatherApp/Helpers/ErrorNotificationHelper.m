@@ -9,6 +9,8 @@
 #import "ErrorNotificationHelper.h"
 
 @implementation ErrorNotificationHelper
+{
+}
 
 #pragma mark - Public Methods
 
@@ -16,8 +18,9 @@
   withCallbackBlock:(CallbackBlock)callbackBlock;
 {
     NSLog(@"Error getting cities: %@", [error localizedDescription]);
-    if ([_delegate respondsToSelector:@selector(didNotifyErrorWithCallbackBlock:)]) {
-        [_delegate performSelector:@selector(didNotifyErrorWithCallbackBlock:)
+    if ([_delegate respondsToSelector:@selector(didNotifyError:withCallbackBlock:)]) {
+        [_delegate performSelector:@selector(didNotifyError:withCallbackBlock:)
+                        withObject:error
                         withObject:callbackBlock];
     }
 }

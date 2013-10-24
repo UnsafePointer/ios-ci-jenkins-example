@@ -12,7 +12,7 @@
 
 @interface WeatherAPIManager : NSObject <TranslatorHelperDelegate, ErrorNotificationHelperDelegate>
 
-@property (nonatomic, strong) TranslatorHelper *parseHelper;
+@property (nonatomic, strong) TranslatorHelper *translatorHelper;
 @property (nonatomic, strong) ErrorNotificationHelper *errorNotificationHelper;
 
 + (WeatherAPIManager *)sharedManager;

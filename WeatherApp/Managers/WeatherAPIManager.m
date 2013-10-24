@@ -17,13 +17,13 @@ static dispatch_once_t oncePredicate;
 
 #pragma mark - Lazy Loading Pattern
 
-- (TranslatorHelper *)parseHelper
+- (TranslatorHelper *)translatorHelper
 {
-    if (_parseHelper == nil) {
-        _parseHelper = [[TranslatorHelper alloc] init];
-        _parseHelper.delegate = self;
+    if (_translatorHelper == nil) {
+        _translatorHelper = [[TranslatorHelper alloc] init];
+        _translatorHelper.delegate = self;
     }
-    return _parseHelper;
+    return _translatorHelper;
 }
 
 - (ErrorNotificationHelper *)errorNotificationHelper
@@ -60,7 +60,7 @@ static dispatch_once_t oncePredicate;
                    @"cnt": @100,
                    @"type": @"json"}
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             [[weakSelf parseHelper] parseCitiesWithResponseObject:responseObject
+             [[weakSelf translatorHelper] parseCitiesWithResponseObject:responseObject
                                                   andCallbackBlock:callbackBlock];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [[weakSelf errorNotificationHelper] notifyError:error

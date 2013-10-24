@@ -144,4 +144,38 @@
                                withCallbackBlock:callbackBlock];
 }
 
+#pragma mark - ParseCitiesWithResponseObjectAndCallbackBlock Tests
+
+- (void)testParseCitiesWithResponseObjectAndCallbackBlockWithValidResponseObject
+{
+    WeatherAPIManager *weatherAPIManager = [WeatherAPIManager sharedManager];
+    AFHTTPRequestOperationManagerSuccess *requestOperationManagerSuccess = [[AFHTTPRequestOperationManagerSuccess alloc] init];
+    requestOperationManagerSuccess.responseData = [JSON_VALID_STRING dataUsingEncoding:NSUTF8StringEncoding];
+    weatherAPIManager.requestOperationManager = requestOperationManagerSuccess;
+    id <TranslatorHelperDelegate> delegate = mockProtocol(@protocol(TranslatorHelperDelegate));
+    weatherAPIManager.translatorHelper.delegate = delegate;
+    CallbackBlock callbackBlock = ^(NSArray *cities, NSError *error) {};
+    [weatherAPIManager citiesWithUserLatitude:@0.0f
+                                userLongitude:@0.0f
+                             andCallbackBlock:callbackBlock];
+    [verify(delegate) didSucceedParseCities:(NSArray *)anything()
+                          withCallbackBlock:callbackBlock];
+}
+
+- (void)testParseCitiesWithResponseObjectAndCallbackBlockWithInvalidResponseObject
+{
+    WeatherAPIManager *weatherAPIManager = [WeatherAPIManager sharedManager];
+    AFHTTPRequestOperationManagerSuccess *requestOperationManagerSuccess = [[AFHTTPRequestOperationManagerSuccess alloc] init];
+    requestOperationManagerSuccess.responseData = [JSON_INVALID_STRING dataUsingEncoding:NSUTF8StringEncoding];
+    weatherAPIManager.requestOperationManager = requestOperationManagerSuccess;
+    id <TranslatorHelperDelegate> delegate = mockProtocol(@protocol(TranslatorHelperDelegate));
+    weatherAPIManager.translatorHelper.delegate = delegate;
+    CallbackBlock callbackBlock = ^(NSArray *cities, NSError *error) {};
+    [weatherAPIManager citiesWithUserLatitude:@0.0f
+                                userLongitude:@0.0f
+                             andCallbackBlock:callbackBlock];
+    [verify(delegate) didFailParseCitiesWithError:(NSError *)anything()
+                                 andCallbackBlock:callbackBlock];
+}
+
 @end

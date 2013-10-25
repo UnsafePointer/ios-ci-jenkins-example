@@ -20,6 +20,9 @@ DerivedData
 # CocoaPods
 Pods
 
+# Build output
+Build/
+
 # OSX
 .DS_Store
 .AppleDouble

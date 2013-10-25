@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import <objc/runtime.h>
 #define HC_SHORTHAND
 #import <OCHamcrest/OCHamcrest.h>
 #define MOCKITO_SHORTHAND
@@ -21,6 +22,7 @@
 
 @end
 
+extern void __gcov_flush();
 
 @implementation AFHTTPRequestOperationManagerSuccess
 
@@ -70,6 +72,7 @@
     WeatherAPIManager *weatherAPIManager = [WeatherAPIManager sharedManager];
     weatherAPIManager.errorNotificationHelper = nil;
     weatherAPIManager.translatorHelper = nil;
+    __gcov_flush();
     [super tearDown];
 }
 

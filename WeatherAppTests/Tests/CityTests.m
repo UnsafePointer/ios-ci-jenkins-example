@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import <objc/runtime.h>
 #define HC_SHORTHAND
 #import <OCHamcrest/OCHamcrest.h>
 #define MOCKITO_SHORTHAND
@@ -20,6 +21,8 @@
 
 @end
 
+extern void __gcov_flush();
+
 @implementation CityTests
 
 - (void)setUp
@@ -30,6 +33,7 @@
 
 - (void)tearDown
 {
+    __gcov_flush();
     [super tearDown];
 }
 

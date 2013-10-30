@@ -51,35 +51,35 @@ extern void __gcov_flush();
 
 - (void)testLatitudeProperty
 {
-    NSNumber *cityLatitude = @100.0f;
+    NSNumber *cityLatitude = [NSNumber numberWithInt:100];
     [_city setLatitude:cityLatitude];
     assertThat(_city.latitude, instanceOf([NSNumber class]));
 }
 
 - (void)testLongitudeProperty
 {
-    NSNumber *cityLongitude = @100.0f;
+    NSNumber *cityLongitude = [NSNumber numberWithInt:100];
     [_city setLongitude:cityLongitude];
     assertThat(_city.longitude, instanceOf([NSNumber class]));
 }
 
 - (void)testTemperatureProperty
 {
-    NSNumber *cityTemperature = @100.0f;
+    NSNumber *cityTemperature = [NSNumber numberWithInt:100];
     [_city setTemperature:cityTemperature];
     assertThat(_city.temperature, instanceOf([NSNumber class]));
 }
 
 - (void)testPressureProperty
 {
-    NSNumber *cityPressure = @100.0f;
+    NSNumber *cityPressure = [NSNumber numberWithInt:100];
     [_city setPressure:cityPressure];
     assertThat(_city.pressure, instanceOf([NSNumber class]));
 }
 
 - (void)testHumidityProperty
 {
-    NSNumber *cityHumidity = @100.0f;
+    NSNumber *cityHumidity = [NSNumber numberWithInt:100];
     [_city setHumidity:cityHumidity];
     assertThat(_city.humidity, instanceOf([NSNumber class]));
 }

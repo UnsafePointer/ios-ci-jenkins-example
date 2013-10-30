@@ -26,7 +26,8 @@
 {
     NSError *error = [NSError errorWithDomain:@"com.tallertechnologies.WeatherApp"
                                          code:20091990
-                                     userInfo:@{@"Description": @"Wrong response object structure"}];
+                                     userInfo:[NSDictionary dictionaryWithObject:@"Wrong response object structure"
+                                                                          forKey:@"Description"]];
     if ([_delegate respondsToSelector:@selector(didFailParseCitiesWithError:andCallbackBlock:)]) {
         [_delegate performSelector:@selector(didFailParseCitiesWithError:andCallbackBlock:)
                         withObject:error

@@ -108,8 +108,8 @@ extern void __gcov_flush();
     TranslatorHelper *translatorHelper = mock([TranslatorHelper class]);
     weatherAPIManager.translatorHelper = translatorHelper;
     CallbackBlock callbackBlock = ^(NSArray *cities, NSError *error) {};
-    [weatherAPIManager citiesWithUserLatitude:@0.0f
-                                userLongitude:@0.0f
+    [weatherAPIManager citiesWithUserLatitude:[NSNumber numberWithFloat:0.0f]
+                                userLongitude:[NSNumber numberWithFloat:0.0f]
                              andCallbackBlock:callbackBlock];
     [verify(translatorHelper) parseCitiesWithResponseObject:responseData
                                            andCallbackBlock:callbackBlock];
@@ -125,8 +125,8 @@ extern void __gcov_flush();
     TranslatorHelper *translatorHelper = mock([TranslatorHelper class]);
     weatherAPIManager.translatorHelper = translatorHelper;
     CallbackBlock callbackBlock = ^(NSArray *cities, NSError *error) {};
-    [weatherAPIManager citiesWithUserLatitude:@0.0f
-                                userLongitude:@0.0f
+    [weatherAPIManager citiesWithUserLatitude:[NSNumber numberWithFloat:0.0f]
+                                userLongitude:[NSNumber numberWithFloat:0.0f]
                              andCallbackBlock:callbackBlock];
     [verify(translatorHelper) parseCitiesWithResponseObject:responseData
                                            andCallbackBlock:callbackBlock];
@@ -140,8 +140,8 @@ extern void __gcov_flush();
     ErrorNotificationHelper *errorNotificationHelper = mock([ErrorNotificationHelper class]);
     weatherAPIManager.errorNotificationHelper = errorNotificationHelper;
     CallbackBlock callbackBlock = ^(NSArray *cities, NSError *error) {};
-    [weatherAPIManager citiesWithUserLatitude:@0.0f
-                                userLongitude:@0.0f
+    [weatherAPIManager citiesWithUserLatitude:[NSNumber numberWithFloat:0.0f]
+                                userLongitude:[NSNumber numberWithFloat:0.0f]
                              andCallbackBlock:callbackBlock];
     [verify(errorNotificationHelper) notifyError:(NSError *)anything()
                                withCallbackBlock:callbackBlock];
@@ -158,8 +158,8 @@ extern void __gcov_flush();
     id <TranslatorHelperDelegate> delegate = mockProtocol(@protocol(TranslatorHelperDelegate));
     weatherAPIManager.translatorHelper.delegate = delegate;
     CallbackBlock callbackBlock = ^(NSArray *cities, NSError *error) {};
-    [weatherAPIManager citiesWithUserLatitude:@0.0f
-                                userLongitude:@0.0f
+    [weatherAPIManager citiesWithUserLatitude:[NSNumber numberWithFloat:0.0f]
+                                userLongitude:[NSNumber numberWithFloat:0.0f]
                              andCallbackBlock:callbackBlock];
     [verify(delegate) didSucceedParseCities:(NSArray *)anything()
                           withCallbackBlock:callbackBlock];
@@ -174,8 +174,8 @@ extern void __gcov_flush();
     id <TranslatorHelperDelegate> delegate = mockProtocol(@protocol(TranslatorHelperDelegate));
     weatherAPIManager.translatorHelper.delegate = delegate;
     CallbackBlock callbackBlock = ^(NSArray *cities, NSError *error) {};
-    [weatherAPIManager citiesWithUserLatitude:@0.0f
-                                userLongitude:@0.0f
+    [weatherAPIManager citiesWithUserLatitude:[NSNumber numberWithFloat:0.0f]
+                                userLongitude:[NSNumber numberWithFloat:0.0f]
                              andCallbackBlock:callbackBlock];
     [verify(delegate) didFailParseCitiesWithError:(NSError *)anything()
                                  andCallbackBlock:callbackBlock];

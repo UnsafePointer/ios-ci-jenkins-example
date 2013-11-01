@@ -1,0 +1,2 @@
+#!/bin/sh
+java -Xmx512m -classpath /Users/ruenzuo/Documents/PMD/pmd-4.2.5/lib/pmd-4.2.5.jar:/Users/ruenzuo/Documents/PMD/ObjCLanguage-0.0.7-SNAPSHOT.jar net.sourceforge.pmd.cpd.CPD --minimum-tokens 10 --language ObjectiveC --encoding UTF-8 --format net.sourceforge.pmd.cpd.XMLRenderer --files WeatherApp --files WeatherAppTests > Build/cpd-output.xml

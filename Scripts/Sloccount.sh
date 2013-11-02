@@ -1,2 +1,3 @@
 #!/bin/sh
-sloccount --duplicates --wide --details WeatherApp > Build/sloccount.sc
+cloc --by-file --xml -out=Build/cloc.xml WeatherApp
+xsltproc Scripts/sloccount.xsl Build/cloc.xml > Build/cloccount.sc

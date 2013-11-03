@@ -1,2 +1,2 @@
 #!/bin/sh
-xctool -reporter junit:junit.xml clean build
+xctool -reporter junit:Build/junit.xml clean build

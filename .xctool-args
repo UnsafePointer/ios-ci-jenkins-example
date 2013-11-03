@@ -1,0 +1,5 @@
+[
+  "-workspace", "WeatherApp.xcworkspace",
+  "-scheme", "WeatherApp",
+  "-sdk", "iphonesimulator"
+]

@@ -10,4 +10,6 @@
 
 @interface SearchViewController : UITableViewController
 
+@property (nonatomic, retain) NSMutableArray *dataSource;
+
 @end

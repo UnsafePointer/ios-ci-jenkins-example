@@ -7,18 +7,30 @@
 //
 
 #import "SearchViewController.h"
+#import "City.h"
+#import "CityViewController.h"
 
 @interface SearchViewController ()
+{
+    NSMutableArray *_filteredDataSource;
+}
+
+- (void)setupSearchDisplayController;
+- (void)filterContentForSearchText:(NSString*)searchText;
 
 @end
 
 @implementation SearchViewController
-
-- (id)initWithStyle:(UITableViewStyle)style
 {
-    self = [super initWithStyle:style];
+}
+
+#pragma mark - View Controller Lifecycle
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
 }
@@ -26,95 +38,94 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setupSearchDisplayController];
+}
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self.searchDisplayController.searchBar becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    if ([[segue identifier] isEqualToString:@"CitySegue"]) {
+        CityViewController *viewController = (CityViewController *)[segue destinationViewController];
+        NSIndexPath *selectedIndexPath = [self.searchDisplayController.searchResultsTableView
+                                          indexPathForSelectedRow];
+        City *city = [_filteredDataSource objectAtIndex:selectedIndexPath.row];
+        viewController.city = city;
+    }
 }
+
+#pragma mark - Lazy Loading Pattern
+
+- (void)setDataSource:(NSMutableArray *)dataSource
+{
+    _dataSource = dataSource;
+    _filteredDataSource = [NSMutableArray arrayWithCapacity:[_dataSource count]];
+}
+
+#pragma mark - Private Methods
+
+- (void)setupSearchDisplayController
+{
+    self.searchDisplayController.displaysSearchBarInNavigationBar = YES;
+    UITextField *searchField = [self.searchDisplayController.searchBar valueForKey:@"_searchField"];
+    searchField.tintColor = [UIColor colorWithRed:46.0f/255.0f
+                                            green:204.0f/255.0f
+                                             blue:113.0f/255.0f
+                                            alpha:1.0f];
+}
+
+-(void)filterContentForSearchText:(NSString*)searchText
+{
+    [_filteredDataSource removeAllObjects];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name contains[c] %@", searchText];
+    [_filteredDataSource addObjectsFromArray:[_dataSource filteredArrayUsingPredicate:predicate]];
+}
+
+#pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [_filteredDataSource count];
+    }
+    else {
+        return 0;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    static NSString *CellIdentifier = @"CityCell";
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    City *city = nil;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        city = [_filteredDataSource objectAtIndex:indexPath.row];
+        cell.textLabel.text = city.name;
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"Lat: %.2f, Lon: %.2f",
+                                     [city.latitude floatValue],[city.longitude floatValue]];
+    }
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+#pragma mark - UISearchDisplayDelegate
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
 {
-    // Return NO if you do not want the specified item to be editable.
+    [self filterContentForSearchText:searchString];
     return YES;
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    [self.navigationController popViewControllerAnimated:YES];
 }
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
- */
 
 @end

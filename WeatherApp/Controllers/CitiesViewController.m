@@ -65,8 +65,8 @@
         viewController.city = city;
     }
     else if ([[segue identifier] isEqualToString:@"SearchSegue"]) {
-//        SearchViewController *viewController = (SearchViewController *)[segue destinationViewController];
-//        [viewController setDataSource:_dataSource];
+        SearchViewController *viewController = (SearchViewController *)[segue destinationViewController];
+        [viewController setDataSource:_dataSource];
     }
 }
 

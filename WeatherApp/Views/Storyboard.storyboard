@@ -48,13 +48,88 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Cities" id="PA5-qJ-pZR">
                         <barButtonItem key="backBarButtonItem" title=" " id="1by-XG-qRR"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="vpU-pc-Unv">
+                            <connections>
+                                <segue destination="tG7-kS-ykk" kind="push" identifier="SearchSegue" id="eBg-gJ-b36"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DG4-fb-FPI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="855" y="-110"/>
         </scene>
-        <!--City View Controller - City-->
+        <!--Search View Controller-->
+        <scene sceneID="kdD-vy-Qgx">
+            <objects>
+                <tableViewController id="tG7-kS-ykk" customClass="SearchViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="WXX-og-gsm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CityCell" textLabel="wAd-oO-Uiu" detailTextLabel="48r-5H-6rR" style="IBUITableViewCellStyleSubtitle" id="hRy-P8-bMa">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hRy-P8-bMa" id="bBz-Q9-cF5">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wAd-oO-Uiu">
+                                            <rect key="frame" x="15" y="3" width="34" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="48r-5H-6rR">
+                                            <rect key="frame" x="15" y="25" width="32" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="q6F-aB-DJO" kind="push" identifier="CitySegue" id="gEM-kd-CeX"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="tG7-kS-ykk" id="c5d-v5-c2M"/>
+                            <outlet property="delegate" destination="tG7-kS-ykk" id="A6D-hI-TZh"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="vBP-rg-bEo">
+                        <barButtonItem key="backBarButtonItem" title=" " id="BlI-cd-OxB"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="WSA-v4-PA5" id="Zdn-WG-YVb"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4yr-fR-yoA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchBar contentMode="redraw" id="Pnf-zI-iML">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="tG7-kS-ykk" id="byz-SV-VdJ"/>
+                    </connections>
+                </searchBar>
+                <searchDisplayController id="WSA-v4-PA5">
+                    <connections>
+                        <outlet property="delegate" destination="tG7-kS-ykk" id="oHA-DK-8Xa"/>
+                        <outlet property="searchBar" destination="Pnf-zI-iML" id="Q9x-OB-jEF"/>
+                        <outlet property="searchContentsController" destination="tG7-kS-ykk" id="u28-c9-JPK"/>
+                        <outlet property="searchResultsDataSource" destination="tG7-kS-ykk" id="k4X-FX-mnp"/>
+                        <outlet property="searchResultsDelegate" destination="tG7-kS-ykk" id="DRW-oF-q2S"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="1393" y="469"/>
+        </scene>
+        <!--City View Controller-->
         <scene sceneID="pvx-QZ-r52">
             <objects>
                 <tableViewController id="q6F-aB-DJO" customClass="CityViewController" sceneMemberID="viewController">
@@ -145,7 +220,7 @@
                             <outlet property="delegate" destination="q6F-aB-DJO" id="Ry9-ec-1ET"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="City" id="i2h-h7-QQv"/>
+                    <navigationItem key="navigationItem" id="i2h-h7-QQv"/>
                     <connections>
                         <outlet property="lblHumidity" destination="hng-2p-e52" id="zWC-D3-OaK"/>
                         <outlet property="lblPressure" destination="QKN-vn-Qws" id="3ou-Vy-5qe"/>
@@ -154,7 +229,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o8x-hR-fgg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1384" y="-110"/>
+            <point key="canvasLocation" x="1935" y="-110"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dS4-rO-5yn">
@@ -181,4 +256,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="vcu-W2-jrE"/>
+    </inferredMetricsTieBreakers>
 </document>

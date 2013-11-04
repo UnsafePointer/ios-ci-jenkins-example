@@ -59,10 +59,10 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"CitySegue"]) {
-//        CityViewController *viewController = (CityViewController *)[segue destinationViewController];
-//        NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
-//        City *city = [_dataSource objectAtIndex:selectedIndexPath.row];
-//        viewController.city = city;
+        CityViewController *viewController = (CityViewController *)[segue destinationViewController];
+        NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
+        City *city = [_dataSource objectAtIndex:selectedIndexPath.row];
+        viewController.city = city;
     }
     else if ([[segue identifier] isEqualToString:@"SearchSegue"]) {
 //        SearchViewController *viewController = (SearchViewController *)[segue destinationViewController];

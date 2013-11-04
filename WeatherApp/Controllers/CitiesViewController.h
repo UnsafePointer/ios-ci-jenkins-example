@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface CitiesViewController : UIViewController
+@interface CitiesViewController : UITableViewController
 
 @end

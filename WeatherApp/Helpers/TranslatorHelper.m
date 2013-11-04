@@ -54,6 +54,7 @@
                 }
                 else {
                     [self notifyErrorWithCallbackBlock:callbackBlock];
+                    break;
                 }
                 id mainObject = [cityObject objectForKey:@"main"];
                 if ([ValidatorHelper isMainObjectValid:mainObject]) {
@@ -63,11 +64,13 @@
                 }
                 else {
                     [self notifyErrorWithCallbackBlock:callbackBlock];
+                    break;
                 }
                 [cities addObject:city];
             }
             else {
                 [self notifyErrorWithCallbackBlock:callbackBlock];
+                break;
             }
         }
     }

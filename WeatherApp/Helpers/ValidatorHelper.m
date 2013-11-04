@@ -27,12 +27,7 @@
             [cityObject isKindOfClass:[NSDictionary class]] &&
             [cityObject objectForKey:@"name"] != nil &&
             [cityObject objectForKey:@"coord"] != nil &&
-            [cityObject objectForKey:@"lat"] != nil &&
-            [cityObject objectForKey:@"lon"] != nil &&
-            [cityObject objectForKey:@"main"] != nil &&
-            [cityObject objectForKey:@"temp"] != nil &&
-            [cityObject objectForKey:@"temp"] != nil &&
-            [cityObject objectForKey:@"humidity"] != nil);
+            [cityObject objectForKey:@"main"] != nil);
 }
 
 + (BOOL)isCoordinatesObjectValid:(id)coordinateObject
@@ -47,9 +42,9 @@
 {
     return (mainObject != nil &&
             [mainObject isKindOfClass:[NSDictionary class]] &&
-            [mainObject objectForKey:@"temp"] != nil &&
-            [mainObject objectForKey:@"lat"] != nil &&
-            [mainObject objectForKey:@"humidity"] != nil);
+            [mainObject objectForKey:@"humidity"] != nil &&
+            [mainObject objectForKey:@"pressure"] != nil &&
+            [mainObject objectForKey:@"temp"] != nil);
 }
 
 @end

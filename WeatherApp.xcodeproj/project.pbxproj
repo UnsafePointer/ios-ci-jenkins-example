@@ -18,6 +18,8 @@
 		3F68D1611819968A0025462E /* WeatherAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F68D15918197A420025462E /* WeatherAPIManager.m */; };
 		3F68D1621819968A0025462E /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F68D14D18196E520025462E /* City.m */; };
 		3F68D16718199F0A0025462E /* CityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F68D16618199F0A0025462E /* CityTests.m */; };
+		3F7658FC18274E190004CB17 /* CityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7658FB18274E190004CB17 /* CityViewController.m */; };
+		3F7658FF18274E340004CB17 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7658FE18274E340004CB17 /* SearchViewController.m */; };
 		3F793A02181875DC00E217D6 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F793A01181875DC00E217D6 /* Storyboard.storyboard */; };
 		3F793A061818768600E217D6 /* WeatherAPIManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F793A051818768600E217D6 /* WeatherAPIManagerTests.m */; };
 		3F81F20318187071008C9510 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F81F20218187071008C9510 /* Foundation.framework */; };
@@ -59,6 +61,10 @@
 		3F68D15B181988D60025462E /* ValidatorHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ValidatorHelper.h; path = Helpers/ValidatorHelper.h; sourceTree = "<group>"; };
 		3F68D15C181988D60025462E /* ValidatorHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ValidatorHelper.m; path = Helpers/ValidatorHelper.m; sourceTree = "<group>"; };
 		3F68D16618199F0A0025462E /* CityTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CityTests.m; path = Tests/CityTests.m; sourceTree = "<group>"; };
+		3F7658FA18274E190004CB17 /* CityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CityViewController.h; path = Controllers/CityViewController.h; sourceTree = "<group>"; };
+		3F7658FB18274E190004CB17 /* CityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CityViewController.m; path = Controllers/CityViewController.m; sourceTree = "<group>"; };
+		3F7658FD18274E340004CB17 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = Controllers/SearchViewController.h; sourceTree = "<group>"; };
+		3F7658FE18274E340004CB17 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = Controllers/SearchViewController.m; sourceTree = "<group>"; };
 		3F793A01181875DC00E217D6 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Storyboard.storyboard; path = Views/Storyboard.storyboard; sourceTree = "<group>"; };
 		3F793A051818768600E217D6 /* WeatherAPIManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeatherAPIManagerTests.m; path = Tests/WeatherAPIManagerTests.m; sourceTree = "<group>"; };
 		3F793A071818768C00E217D6 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = Support/InfoPlist.strings; sourceTree = "<group>"; };
@@ -229,6 +235,10 @@
 			children = (
 				3F81F2411818721B008C9510 /* CitiesViewController.h */,
 				3F81F2421818721B008C9510 /* CitiesViewController.m */,
+				3F7658FA18274E190004CB17 /* CityViewController.h */,
+				3F7658FB18274E190004CB17 /* CityViewController.m */,
+				3F7658FD18274E340004CB17 /* SearchViewController.h */,
+				3F7658FE18274E340004CB17 /* SearchViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -419,10 +429,12 @@
 			files = (
 				3F81F2431818721B008C9510 /* CitiesViewController.m in Sources */,
 				3F68D1571819781D0025462E /* TranslatorHelper.m in Sources */,
+				3F7658FF18274E340004CB17 /* SearchViewController.m in Sources */,
 				3F68D15D181988D60025462E /* ValidatorHelper.m in Sources */,
 				3F68D15A18197A420025462E /* WeatherAPIManager.m in Sources */,
 				3F81F24B1818722A008C9510 /* main.m in Sources */,
 				3F68D14E18196E530025462E /* City.m in Sources */,
+				3F7658FC18274E190004CB17 /* CityViewController.m in Sources */,
 				3F81F24018187210008C9510 /* AppDelegate.m in Sources */,
 				3F68D15118196FCC0025462E /* ErrorNotificationHelper.m in Sources */,
 			);

@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 
 @interface AppDelegate ()
 
@@ -55,6 +56,7 @@
 
 - (void)setupAppearance
 {
+    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
     [[self window] setTintColor:[UIColor whiteColor]];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor]

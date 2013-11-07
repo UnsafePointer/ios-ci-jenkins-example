@@ -24,7 +24,7 @@
 
 - (void)notifyErrorWithCallbackBlock:(CallbackBlock)callbackBlock
 {
-    NSError *error = [NSError errorWithDomain:@"com.tallertechnologies.WeatherApp"
+    NSError *error = [NSError errorWithDomain:@"com.ruenzuo.WeatherApp"
                                          code:20091990
                                      userInfo:[NSDictionary dictionaryWithObject:@"Wrong response object structure"
                                                                           forKey:@"Description"]];

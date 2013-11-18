@@ -10,13 +10,13 @@ __Building:__
 In order to build the application, clone this repo:
 
 ```sh
-$ git clone git@github.com:Ruenzuo/north-american-ironman.git
+$ git clone git@github.com:Ruenzuo/ios-ci-jenkins-example.git
 ```
 
 Then set up the dependencies and open the workspace and you're ready to go:
 
 ```sh
-$ cd north-american-ironman && pod install && open WeatherApp.xcworkspace
+$ cd ios-ci-jenkins-example && pod install && open WeatherApp.xcworkspace
 ```  
 
 ![screenshot-1](https://dl.dropboxusercontent.com/u/99114459/ci-screenshot-1.png)&nbsp;

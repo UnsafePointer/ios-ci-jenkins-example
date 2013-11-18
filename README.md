@@ -1,9 +1,9 @@
-north-american-ironman
-======================
+Continuous Integration on iOS with Jenkins
+=========================================
 
 __Description:__
 
-This is a continous integration example with an iOS application using xctool as the build system, CocoaPods as the dependency manager, AFNetworking for asynchronous networking inside the iOS app, OCMockito for mock and stub unit testing, OCHamcrest for unit testing matchers, gcovr for test coverage reporting, oclint for static analysis reporting, cloc for software lines of code count reporting, PMD for duplicate code reporting and Jenkins as the continuous integration server. I'll publish the detail setup for all these in my blog very soon.
+This is a continuous integration example with an iOS application using xctool as the build system, CocoaPods as the dependency manager, AFNetworking for asynchronous networking inside the iOS app, OCMockito for mock and stub unit testing, OCHamcrest for unit testing matchers, gcovr for test coverage reporting, oclint for static analysis reporting, cloc for software lines of code count reporting, PMD for duplicate code reporting and Jenkins as the continuous integration server. I'll publish the detail setup for all these in my blog very soon.
  
 __Building:__
 

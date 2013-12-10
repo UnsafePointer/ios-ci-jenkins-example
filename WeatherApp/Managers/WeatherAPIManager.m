@@ -62,17 +62,17 @@ static dispatch_once_t oncePredicate;
                  userLongitude:(NSNumber *)userLongitude
               andCallbackBlock:(CallbackBlock)callbackBlock
 {    
-    __weak WeatherAPIManager *weakSelf = self;
+    __weak typeof(self) blocksafeSelf = self;
     [[self requestOperationManager] GET:@"find"
                              parameters:[NSDictionary dictionaryWithObjectsAndKeys:userLatitude,
                                          @"lat", userLongitude, @"lon", [NSNumber numberWithInt:100], @"cnt", @"json", @"type", nil]
                                 success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                    [[weakSelf translatorHelper] parseCitiesWithResponseObject:responseObject
-                                                                              andCallbackBlock:callbackBlock];
+                                    [[blocksafeSelf translatorHelper] parseCitiesWithResponseObject:responseObject
+                                                                                   andCallbackBlock:callbackBlock];
                                 }
                                 failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                    [[weakSelf errorNotificationHelper] notifyError:error
-                                                                  withCallbackBlock:callbackBlock];
+                                    [[blocksafeSelf errorNotificationHelper] notifyError:error
+                                                                       withCallbackBlock:callbackBlock];
                                 }];
 }
 

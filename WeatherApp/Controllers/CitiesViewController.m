@@ -152,15 +152,16 @@
 {
     [_locationManager stopUpdatingLocation];
     CLLocation *location = [locations lastObject];
+    __weak typeof(self) blocksafeSelf = self;
     [[WeatherAPIManager sharedManager] citiesWithUserLatitude:[NSNumber numberWithDouble:location.coordinate.latitude]
                                                 userLongitude:[NSNumber numberWithDouble:location.coordinate.longitude]
                                              andCallbackBlock:^(NSArray *cities, NSError *error) {
-                                                 [self endRefreshTableView];
+                                                 [blocksafeSelf endRefreshTableView];
                                                  if (error) {
-                                                     [self notifyError];
+                                                     [blocksafeSelf notifyError];
                                                  }
                                                  else {
-                                                     [self reloadDataSourceWithCities:cities];
+                                                     [blocksafeSelf reloadDataSourceWithCities:cities];
                                                  }
                                              }];
 }

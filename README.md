@@ -27,15 +27,15 @@ __Jenkins Dashboard:__
 
 The main objective here is to have a quality metrics dashboard on Jenkins:  
 
-![test_results](https://dl.dropboxusercontent.com/u/99114459/test_results.png)
+![test_results](https://dl.dropboxusercontent.com/u/12352209/GitHub/test_results.png)
 
-![code_coverage](https://dl.dropboxusercontent.com/u/99114459/code_coverage.png)
+![code_coverage](https://dl.dropboxusercontent.com/u/12352209/GitHub/code_coverage.png)
 
-![static_analysis](https://dl.dropboxusercontent.com/u/99114459/static_analysis.png)
+![static_analysis](https://dl.dropboxusercontent.com/u/12352209/GitHub/static_analysis.png)
 
-![sloc_count](https://dl.dropboxusercontent.com/u/99114459/sloc_count.png)
+![sloc_count](https://dl.dropboxusercontent.com/u/12352209/GitHub/sloc_count.png)
 
-![duplicate_code](https://dl.dropboxusercontent.com/u/99114459/duplicate_code.png)
+![duplicate_code](https://dl.dropboxusercontent.com/u/12352209/GitHub/duplicate_code.png)
 
 You only need to add an Execute shell step on you Jenkins job like this:
 

@@ -19,9 +19,9 @@ Then set up the dependencies and open the workspace and you're ready to go:
 $ cd ios-ci-jenkins-example && pod install && open WeatherApp.xcworkspace
 ```  
 
-![screenshot-1](https://dl.dropboxusercontent.com/u/99114459/ci-screenshot-1.png)&nbsp;
-![screenshot-2](https://dl.dropboxusercontent.com/u/99114459/ci-screenshot-2.png)
-![screenshot-3](https://dl.dropboxusercontent.com/u/99114459/ci-screenshot-3.png)
+![screenshot-1](https://dl.dropboxusercontent.com/u/12352209/GitHub/ci-screenshot-1.png)&nbsp;
+![screenshot-2](https://dl.dropboxusercontent.com/u/12352209/GitHub/ci-screenshot-2.png)
+![screenshot-3](https://dl.dropboxusercontent.com/u/12352209/GitHub/ci-screenshot-3.png)
 
 __Jenkins Dashboard:__
 

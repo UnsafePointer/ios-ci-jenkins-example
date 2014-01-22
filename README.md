@@ -49,28 +49,28 @@ You only need to add an Execute shell step on you Jenkins job like this:
 ```
 
 For more information on how to get started with each tool/framework, go to:  
-xctool: https://github.com/facebook/xctool  
-CocoaPods: https://github.com/cocoapods/cocoapods  
-AFNetworking: https://github.com/AFNetworking/AFNetworking  
-OCMockito: https://github.com/jonreid/OCMockito  
-OCHamcrest: https://github.com/hamcrest/OCHamcrest  
-gcovr: https://github.com/gcovr/gcovr  
-oclint: https://github.com/oclint/oclint  
-cloc: http://cloc.sourceforge.net  
-PMD: http://pmd.sourceforge.net  
-Jenkins: http://jenkins-ci.org/  
+[xctool](https://github.com/facebook/xctool)  
+[CocoaPods](https://github.com/cocoapods/cocoapods)  
+[AFNetworking](https://github.com/AFNetworking/AFNetworking)  
+[OCMockito](https://github.com/jonreid/OCMockito)  
+[OCHamcrest](https://github.com/hamcrest/OCHamcrest)  
+[gcovr](https://github.com/gcovr/gcovr)  
+[oclint](https://github.com/oclint/oclint)  
+[cloc](http://cloc.sourceforge.net)  
+[PMD](http://pmd.sourceforge.net)  
+[Jenkins](http://jenkins-ci.org/)  
 
 The following Jenkins plugins have been used for the dashboard:  
 Test results: Regular Jenkins JUnit test result report plugin  
-Code coverage: https://wiki.jenkins-ci.org/display/JENKINS/Cobertura+Plugin  
-Static analysis: https://wiki.jenkins-ci.org/display/JENKINS/PMD+Plugin  
-Sloc count: https://wiki.jenkins-ci.org/display/JENKINS/SLOCCount+Plugin  
-Duplicate code: https://wiki.jenkins-ci.org/display/JENKINS/DRY+Plugin  
+[Code coverage](https://wiki.jenkins-ci.org/display/JENKINS/Cobertura+Plugin)  
+[Static analysis](https://wiki.jenkins-ci.org/display/JENKINS/PMD+Plugin)  
+[Sloc count](https://wiki.jenkins-ci.org/display/JENKINS/SLOCCount+Plugin)  
+[Duplicate code](https://wiki.jenkins-ci.org/display/JENKINS/DRY+Plugin)  
 
 If you examine closely the scripts, this helpers tools have been used:  
-reattach-to-user-namespace: https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard  
-Objective-C-CPD-Language: https://github.com/jkennedy1980/Objective-C-CPD-Language  
-xsltproc: https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man1/xsltproc.1.html  
+[reattach-to-user-namespace](https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard)  
+[Objective-C-CPD-Language](https://github.com/jkennedy1980/Objective-C-CPD-Language)  
+[xsltproc](https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man1/xsltproc.1.html)  
 
 __To-Do__
 
@@ -84,7 +84,7 @@ License
 
     The MIT License (MIT)
 
-    Copyright (c) 2013 Renzo Crisóstomo
+    Copyright (c) 2014 Renzo Crisóstomo
 
     Permission is hereby granted, free of charge, to any person obtaining a copy of
     this software and associated documentation files (the "Software"), to deal in

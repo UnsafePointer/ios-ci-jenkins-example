@@ -3,7 +3,7 @@ Continuous Integration on iOS with Jenkins
 
 __Description:__
 
-This is a continuous integration example with an iOS application using xctool as the build system, CocoaPods as the dependency manager, AFNetworking for asynchronous networking inside the iOS app, OCMockito for mock and stub unit testing, OCHamcrest for unit testing matchers, gcovr for test coverage reporting, oclint for static analysis reporting, cloc for software lines of code count reporting, PMD for duplicate code reporting and Jenkins as the continuous integration server. I'll publish the detail setup for all these in my blog very soon.
+This is a continuous integration example with an iOS application using xctool as the build system, CocoaPods as the dependency manager, AFNetworking for asynchronous networking inside the iOS app, OCMockito for mock and stub unit testing, OCHamcrest for unit testing matchers, gcovr for test coverage reporting, oclint for static analysis reporting, cloc for software lines of code count reporting, PMD for duplicate code reporting and Jenkins as the continuous integration server. You can find the detail setup and explanations for all these in my [blog](http://ruenzuo.github.io/static-analysis-on-ios-part-i/index.html).
  
 __Building:__
 
@@ -75,7 +75,7 @@ If you examine closely the scripts, this helpers tools have been used:
 __To-Do__
 
 * `[✓]` <del>Make it public.</del>
-* `[ ]` Write the blog post.
+* `[✓]` <del>Write the blog post</del>. It's [here](http://ruenzuo.github.io/static-analysis-on-ios-part-i/index.html).
 * `[ ]` Continuous delivery setup: app signing and Testflight integration.
 * `[ ]` Currently, I'm executing the unit tests twice, because I'm using two different reporters each time. I think this could be improved.
 

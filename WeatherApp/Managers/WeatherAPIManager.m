@@ -65,7 +65,7 @@ static dispatch_once_t oncePredicate;
     __weak typeof(self) blocksafeSelf = self;
     [[self requestOperationManager] GET:@"find"
                              parameters:[NSDictionary dictionaryWithObjectsAndKeys:userLatitude,
-                                         @"lat", userLongitude, @"lon", [NSNumber numberWithInt:100], @"cnt", @"json", @"type", nil]
+                                         @"lat", userLongitude, @"lon", [NSNumber numberWithInt:100], @"cnt", @"json", @"mode", nil]
                                 success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                     [[blocksafeSelf translatorHelper] parseCitiesWithResponseObject:responseObject
                                                                                    andCallbackBlock:callbackBlock];

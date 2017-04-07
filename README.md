@@ -19,23 +19,23 @@ Then set up the dependencies and open the workspace and you're ready to go:
 $ cd ios-ci-jenkins-example && pod install && open WeatherApp.xcworkspace
 ```  
 
-![screenshot-1](https://dl.dropboxusercontent.com/u/12352209/GitHub/ci-screenshot-1.png)&nbsp;
-![screenshot-2](https://dl.dropboxusercontent.com/u/12352209/GitHub/ci-screenshot-2.png)
-![screenshot-3](https://dl.dropboxusercontent.com/u/12352209/GitHub/ci-screenshot-3.png)
+![screenshot-1](https://raw.githubusercontent.com/Ruenzuo/res/master/ci-screenshot-1.png)&nbsp;
+![screenshot-2](https://raw.githubusercontent.com/Ruenzuo/res/master/ci-screenshot-2.png)
+![screenshot-3](https://raw.githubusercontent.com/Ruenzuo/res/master/ci-screenshot-3.png)
 
 __Jenkins Dashboard:__
 
 The main objective here is to have a quality metrics dashboard on Jenkins:  
 
-![test_results](https://dl.dropboxusercontent.com/u/12352209/GitHub/test_results.png)
+![test_results](https://raw.githubusercontent.com/Ruenzuo/res/master/test_results.png)
 
-![code_coverage](https://dl.dropboxusercontent.com/u/12352209/GitHub/code_coverage.png)
+![code_coverage](https://raw.githubusercontent.com/Ruenzuo/res/master/code_coverage.png)
 
-![static_analysis](https://dl.dropboxusercontent.com/u/12352209/GitHub/static_analysis.png)
+![static_analysis](https://raw.githubusercontent.com/Ruenzuo/res/master/static_analysis.png)
 
-![sloc_count](https://dl.dropboxusercontent.com/u/12352209/GitHub/sloc_count.png)
+![sloc_count](https://raw.githubusercontent.com/Ruenzuo/res/master/sloc_count.png)
 
-![duplicate_code](https://dl.dropboxusercontent.com/u/12352209/GitHub/duplicate_code.png)
+![duplicate_code](https://raw.githubusercontent.com/Ruenzuo/res/master/GitHub/duplicate_code.png)
 
 You only need to add an Execute shell step on you Jenkins job like this:
 

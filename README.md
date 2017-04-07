@@ -35,7 +35,7 @@ The main objective here is to have a quality metrics dashboard on Jenkins:
 
 ![sloc_count](https://raw.githubusercontent.com/Ruenzuo/res/master/sloc_count.png)
 
-![duplicate_code](https://raw.githubusercontent.com/Ruenzuo/res/master/GitHub/duplicate_code.png)
+![duplicate_code](https://raw.githubusercontent.com/Ruenzuo/res/master/duplicate_code.png)
 
 You only need to add an Execute shell step on you Jenkins job like this:
 
